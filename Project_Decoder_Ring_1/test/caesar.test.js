@@ -7,9 +7,19 @@ describe("caesar", () => {
         const expected = "zabc";
         expect(actual).to.equal(expected);
     });
+    it("should return an encoded string with the characters appropriately shifted for a negative shift", () => {
+        const actual = caesar("wxyz", -3, true);
+        const expected = "tuvw";
+        expect(actual).to.equal(expected);
+    });
     it("should return a decoded string with the characters appropriately shifted, and wraparound alphabet if needed", () => {
         const actual = caesar("zabc", 3, false);
         const expected = "wxyz";
+        expect(actual).to.equal(expected);
+    });
+    it("should return a decoded string with the characters appropriately shifted for a negative shift", () => {
+        const actual = caesar("zabc", -3, false);
+        const expected = "cdef";
         expect(actual).to.equal(expected);
     });
     it("should return false if shift is 0", () => {
